@@ -3,21 +3,17 @@ import './App.css';
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
+    <div className="Blog">
+      <div className='container'>
+      <header className="Blog-header">
+        <h3>AssemBlog</h3>
+        <a href="https://github.com/GROOTScorer/blog-tp"><img className='github' width="25px" height="25px" title="Repositorio" src="https://cdn-icons-png.flaticon.com/256/25/25231.png"></img></a>
       </header>
+
+      <input type="title" className='titulo'></input>
+
+      <footer>AssemBlog - Creado por Mateo Villegas y Gael De Luca</footer>
+      </div>
     </div>
   );
 }
