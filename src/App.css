@@ -16,7 +16,7 @@ footer{
 }
 
 .container{
-  width: 90%;
+  width: 70%;
   margin: 0 auto;
 }
 
@@ -29,6 +29,7 @@ footer{
   justify-content: center;
   font-size: calc(10px + 2vmin);
   width: 100%;
+  margin-top: 100px;
 }
 
 .github{
