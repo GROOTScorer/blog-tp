@@ -1,8 +1,12 @@
+import './Crear.css';
+
 function Crear()
 {
     return(
-        <div className="Creacion">
-
+        <div className="container">
+            <input className='titulo' type="titulo"></input>
+            <input className='sintesis' type="sintesis"></input>
+            <textarea className='area'></textarea>
         </div>
     )
 }
