@@ -10,7 +10,7 @@ function Navegador()
              <ul>
                 <Link to='/Crear'><li className="crear">Crear un artículo</li></Link>
 
-                <input></input>
+                <input placeholder="Buscar..."></input>
              </ul>
             </nav>
         </div>

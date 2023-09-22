@@ -6,6 +6,7 @@ function Crear()
         <div className="container">
             <input className='titulo' type="titulo"></input>
             <input className='sintesis' type="sintesis"></input>
+            <input className='autor' type='autor'></input>
             <textarea className='area'></textarea>
         </div>
     )

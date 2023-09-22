@@ -1,0 +1,39 @@
+.prevista{
+    width: 70%;
+    /* border: solid black 1px; */
+    height: 300px;
+    margin: 0 auto;
+}
+
+.imgprev{
+    width: 50%;
+    height: 100%;
+    object-fit: cover;
+    float: left;
+    border-radius: 10px;
+}
+
+.sintesisprev{
+    color: #555555;
+    margin: 15px;
+}
+
+.like{
+    opacity: 0.5;
+    transition: 0.5s;
+    cursor: pointer;
+}
+
+.copylink{
+    opacity: 0.5;
+    transition: 0.5s;
+    cursor: pointer;
+}
+
+.like:hover{
+    opacity: 1;
+}
+
+.copylink:hover{
+    opacity: 1;
+}
