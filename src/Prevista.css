@@ -1,13 +1,13 @@
 .prevista{
     width: 70%;
     /* border: solid black 1px; */
-    height: 300px;
+    height: fit-content;
     margin: 0 auto;
 }
 
 .imgprev{
     width: 50%;
-    height: 100%;
+    height: fit-content;
     object-fit: cover;
     float: left;
     border-radius: 10px;
