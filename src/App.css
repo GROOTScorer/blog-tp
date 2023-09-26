@@ -1,11 +1,11 @@
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@500&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat&display=swap');
 
 h3{
   color: black;
 }
 
 body{
-  font-family: 'Poppins', sans-serif;
+  font-family: 'Montserrat', sans-serif;
   background-color: #dddddd;
 }
 
@@ -30,16 +30,6 @@ footer{
   font-size: calc(10px + 2vmin);
   width: 100%;
   margin-top: 100px;
-}
-
-.github{
-  float: right;
-  opacity: 0.5;
-  transition: 1s;
-}
-
-.github:hover{
-  opacity: 1;
 }
 
 @keyframes opacity{

@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@500&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat&display=swap');
 
 .Nav{
     background-color: rgba(28,28,28,0.9);
@@ -8,8 +8,21 @@
     left: 0;
     width: 100%;
     z-index: 1000;
-    font-family: 'Poppins', sans-serif;
+    font-family: 'Montserrat', sans-serif;
 }
+
+.github{
+    float: right;
+    opacity: 0.5;
+    transition: 1s;
+    filter: invert(100%);
+    -webkit-filter: invert(100%);
+    margin: 0px 30px 0px 30px;
+  }
+  
+  .github:hover{
+    opacity: 1;
+  }
 
 input{
     height: 20px;

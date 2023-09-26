@@ -1,13 +1,20 @@
 import './Crear.css';
 
+function handleClick(event){
+    event.preventDefault();
+}
+
 function Crear()
 {
     return(
-        <div className="container">
-            <input className='titulo' type="titulo"></input>
-            <input className='sintesis' type="sintesis"></input>
-            <input className='autor' type='autor'></input>
-            <textarea className='area'></textarea>
+        <div className="containerCrear">
+            <form>
+            <input className='titulo' type="titulo" placeholder='Título'></input>
+            <textarea className='sintesis' type="sintesis" placeholder='Síntesis del artículo'></textarea>
+            <input className='autor' type='autor' placeholder='Creador por...'></input>
+            <textarea className='area' placeholder='Comienza a escribir...'></textarea>
+            <input type='submit' onClick={handleClick}></input>
+            </form>
         </div>
     )
 }
