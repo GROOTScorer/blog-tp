@@ -1,4 +1,11 @@
+import { useEffect } from 'react';
 import './Crear.css';
+
+function Titulo() {
+    useEffect(() => {
+      document.title = 'Crear un post';
+    }, []);
+  }
 
 function handleClick(event){
     event.preventDefault();
@@ -9,6 +16,7 @@ function Crear()
 {
     return(
         <div className="containerCrear">
+            <Titulo />
             <form>
             <input className='titulo' type="titulo" placeholder='Título'></input>
             <textarea className='sintesis' type="sintesis" placeholder='Síntesis del artículo'></textarea>
