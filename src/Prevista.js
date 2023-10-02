@@ -8,7 +8,7 @@ function Prevista(){
             <p className='sintesisprev'>Esta sintesis habla un poco sobre lo que se va a ver en el artículo.</p>
             <p className='autorprev'>Por Groot</p>
             <img alt="" height="25px" width="25px" className='like' src='https://cdn-icons-png.flaticon.com/256/833/833472.png'></img>
-            <img alt="" height="25px" width="25px" className='copylink' src='https://cdn.iconscout.com/icon/free/png-256/free-chain-link-connection-attach-37919.png'></img>
+            <img alt="" height="25px" width="25px" className='comentario' src='https://upload.wikimedia.org/wikipedia/commons/5/50/Twitter_Reply.png'></img>
 
         </div>
     )

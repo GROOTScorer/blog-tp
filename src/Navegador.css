@@ -51,10 +51,11 @@ nav li{
     border: solid rgb(251, 255, 255);
     border-radius: 20px;
     transform: translate(-50px);
+    transition: 0.5s;
 }
 
 nav li:hover{
-    background-color: rgb(45, 45, 45);
+    background-color: #99999999;
 }
 
 nav a{

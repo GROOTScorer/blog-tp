@@ -24,7 +24,7 @@
     cursor: pointer;
 }
 
-.copylink{
+.comentario{
     opacity: 0.5;
     transition: 0.5s;
     cursor: pointer;
@@ -34,6 +34,6 @@
     opacity: 1;
 }
 
-.copylink:hover{
+.comentario:hover{
     opacity: 1;
 }

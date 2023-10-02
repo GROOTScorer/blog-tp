@@ -43,4 +43,16 @@
 
 .area{
     width: 80%;
+    height: 300px;
+}
+
+.enviar{
+    height: 30px;
+    transition: 0.5s;
+}
+
+.enviar:hover{
+    cursor: pointer;
+    filter: invert(10%);
+    -webkit-filter: invert(10%);
 }
