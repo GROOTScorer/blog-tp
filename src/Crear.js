@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useState, useEffect } from 'react';
 import './Crear.css';
 
 function Titulo() {
@@ -11,10 +11,24 @@ function Titulo() {
 function Crear()
 {
     const [posts, setPosts] = useState([]);
-  
-    const titleRef = useRef();
-    const summaryRef = useRef();
-    const authorRef = useRef();
+    const [post, setPost] = useState({
+        titulo: '',
+        sintesis: '',
+        autor: '',
+        area: ''
+    });
+
+    function handleSubmit(e)
+    {
+        e.preventDefault();
+        savePost();
+        setPost({
+            titulo: '',
+            sintesis: '',
+            autor: '',
+            area: ''
+        })
+    }
   
     useEffect(() => {
       const storedPosts = localStorage.getItem('posts');
@@ -22,36 +36,29 @@ function Crear()
         setPosts(JSON.parse(storedPosts));
       }
     }, []);
+
+    function handleChange(e)
+    {
+        let name = e.target.name;
+        let value = e.target.value;
+        setPost({... post, [name]: value});
+    }
   
     const savePost = () => {
-      const title = titleRef.current.value;
-      const summary = summaryRef.current.value;
-      const author = authorRef.current.value;
-  
-      const newPost = {
-        title,
-        summary,
-        author
-      };
-  
-      setPosts([...posts, newPost]);
-      localStorage.setItem('posts', JSON.stringify([...posts, newPost]));
+      localStorage.setItem('posts', JSON.stringify([post, ...posts]));
       
-      titleRef.current.value = '';
-      summaryRef.current.value = '';
-      authorRef.current.value = '';
     }
 
     return(
         <div className="containerCrear">
             <Titulo />
-            <form>
-            <input ref={titleRef} className='titulo' type="titulo" placeholder='Título'></input>
-            <textarea ref={summaryRef} className='sintesis' type="sintesis" placeholder='Síntesis del artículo'></textarea>
-            <input ref={authorRef} className='autor' type='autor' placeholder='Creador por...'></input>
-            <textarea className='area' placeholder='Comienza a escribir...'></textarea>
+            <form onSubmit={handleSubmit}>
+            <input className='titulo' name="titulo" value={post.titulo} placeholder='Título' onChange={handleChange}></input>
+            <textarea className='sintesis' name="sintesis" value={post.sintesis} placeholder='Síntesis del artículo' onChange={handleChange}></textarea>
+            <input className='autor' name='autor' value={post.autor} placeholder='Creador por...' onChange={handleChange}></input>
+            <textarea className='area' name='area' value={post.area} placeholder='Comienza a escribir...' onChange={handleChange}></textarea>
             <br/>
-            <input className='enviar' type='submit' onClick={savePost}></input>
+            <button className='enviar' name='submit'>Enviar</button>
             </form>
         </div>
     )

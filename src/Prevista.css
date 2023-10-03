@@ -6,6 +6,11 @@
     margin-bottom: 100px;
 }
 
+.prevista a{
+    color: black;
+    text-decoration: none;
+}
+
 .imgprev{
     width: 50%;
     height: fit-content;

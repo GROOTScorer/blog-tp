@@ -26,7 +26,7 @@ useEffect(() => {
       </header>
 
       {posts.map(post => (
-        <Prevista key={post.title} title={post.title} author={post.author} summary={post.summary} />
+        <Prevista id={post.titulo} key={post.titulo} titulo={post.titulo} autor={post.autor} sintesis={post.sintesis} />
 ))}
 
       <footer>AssemBlog - Creado por Gael De Luca, Joaquín Pocovi y Mateo Villegas</footer>

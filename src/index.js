@@ -6,6 +6,7 @@ import App from './App';
 import Navegador from './Navegador.js';
 import Crear from './Crear.js';
 import Admin from './Admin.js';
+import Articulo from './Articulo';
 import reportWebVitals from './reportWebVitals';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
@@ -18,6 +19,8 @@ root.render(
         <Route path="/Navegador" element={<Navegador />} />
         <Route path="/Crear" element={<Crear />}/>
         <Route path="/Admin" element={<Admin />}/>
+        <Route path='/Articulo' element={<Articulo />} />
+        <Route path="/posts/:id" element={<Articulo />}/>
       </Routes>
     </BrowserRouter>
   </React.StrictMode>
