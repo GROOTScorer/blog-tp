@@ -1,4 +1,4 @@
-import { useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import './App.css';
 import Prevista from './Prevista';
 
@@ -9,6 +9,14 @@ function Titulo() {
 }
 
 function App() {
+  const [posts, setPosts] = useState([]);
+
+useEffect(() => {
+  const posts = JSON.parse(localStorage.getItem('posts'));
+  if (posts) {
+   setPosts(posts);
+  }
+}, []);
   return (
     <div className="Blog">
       <Titulo />
@@ -17,7 +25,9 @@ function App() {
         <h3>AssemBlog</h3>
       </header>
 
-      <Prevista />
+      {posts.map(post => (
+        <Prevista key={post.title} title={post.title} author={post.author} summary={post.summary} />
+))}
 
       <footer>AssemBlog - Creado por Gael De Luca, Joaquín Pocovi y Mateo Villegas</footer>
       </div>
