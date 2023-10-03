@@ -5,6 +5,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import App from './App';
 import Navegador from './Navegador.js';
 import Crear from './Crear.js';
+import Admin from './Admin.js';
 import reportWebVitals from './reportWebVitals';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
@@ -16,6 +17,7 @@ root.render(
         <Route path="/" element={<App />} />
         <Route path="/Navegador" element={<Navegador />} />
         <Route path="/Crear" element={<Crear />}/>
+        <Route path="/Admin" element={<Admin />}/>
       </Routes>
     </BrowserRouter>
   </React.StrictMode>
