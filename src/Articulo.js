@@ -1,5 +1,6 @@
 import { useParams } from 'react-router-dom';
 import './Articulo.css';
+import Markdown from 'react-markdown';
 import { useEffect, useState } from 'react';
 
 function Articulo() {
@@ -9,7 +10,7 @@ function Articulo() {
   let { id } = useParams();
 
   useEffect(() => {
-    document.title = id;
+    document.title = id;    
     setTitulo(id);
   }, [id]);
 
@@ -21,6 +22,7 @@ function Articulo() {
           .map(item => item.area);
 
         setBody(filteredBody);
+        console.log(filteredBody)
       }
   }, [titulo]);
 
@@ -57,17 +59,20 @@ function Articulo() {
   const saveComentario = () => {
     const storedComentarios = JSON.parse(localStorage.getItem('comentarios')) || [];
     const updatedComentarios = [comentario, ...storedComentarios];
-    localStorage.setItem('comentarios', JSON.stringify(updatedComentarios));
+    localStorage.setItem('comentarios', JSON.stringify(updatedComentarios));   
   }
 
   return (
     <div className='articulo'>
       <h1>{id}</h1>
-      {body.map((text, index) => (
+      {/* {body.map((text, index) => (
         <p key={index}>{text}</p>
-      ))}
+      ))} */}
+        <Markdown>
+            {body[0]}
+        </Markdown>
       <hr />
-      <h2>Comentarios</h2>
+      <a href='#Comentarios'><h2 id='Comentarios'>Comentarios</h2></a>
 
       <form className='crearComentario' onSubmit={handleSubmit}>
         <input className='autorComentario' name='autorComentario' placeholder='Comentador' value={comentario.autorComentario} onChange={handleChange}></input>
