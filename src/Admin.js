@@ -8,25 +8,27 @@ function Titulo() {
     }, []);
   }
 
-  function handleSubmit(e)
-  {
-      e.preventDefault();
-  }
+  function Admin(props)
+  {   
+      const {setAdmin} = props;
+      const [posts, setPosts] = useState([]);
+      const [password, setPassword] = useState('');
 
-function handleChange(e)
-{
-    let password = e.target.value;
-    let isPassword;
-    if(password === 'abcefg')
-    {
-        isPassword=true;
-    }
-}
+      function handleChange(e)
+      {
+        setPassword(e.target.value);
+      }
 
-function Admin()
-{
-    const [posts, setPosts] = useState([]);
-
+      function handleSubmit(e)
+      {
+          e.preventDefault();
+                if(password == 'abcdefg')
+                {
+                    setAdmin(true);
+                }
+        
+        setPassword('');
+      }
     useEffect(() => {
       const posts = JSON.parse(localStorage.getItem('posts'));
       if (posts) {
@@ -38,12 +40,9 @@ function Admin()
         <div className='containerAdmin'>
             <Titulo />
             <form onSubmit={handleSubmit}>
-                <input className='contrasena' name='contrasena' placeholder='Ingresa la contraseña...' onChange={handleChange}></input>
+                <input className='contrasena' name='contrasena' placeholder='Ingresa la contraseña...' value={password} onChange={handleChange}></input>
                 <button className='enviarContrasena'>Enviar</button>
             </form>
-        {/* {isPassword && posts.map(post => (
-        <Prevista id={post.titulo} key={post.titulo} titulo={post.titulo} autor={post.autor} sintesis={post.sintesis} />
-        ))} */}
 
         </div>
     )

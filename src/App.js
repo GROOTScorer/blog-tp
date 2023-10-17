@@ -1,37 +1,27 @@
-import { useState, useEffect } from 'react';
-import './App.css';
-import Prevista from './Prevista';
-
-function Titulo() {
-  useEffect(() => {
-    document.title = 'AssemBlog';
-  }, []);
-}
+import { useState } from 'react';
+import Navegador from './Navegador.js';
+import Crear from './Crear.js';
+import Admin from './Admin.js';
+import Articulo from './Articulo';
+import Main from './Main.js';
+import { Routes, Route } from "react-router-dom";
 
 function App() {
-  const [posts, setPosts] = useState([]);
+  const [admin, setAdmin] = useState(false);
 
-useEffect(() => {
-  const posts = JSON.parse(localStorage.getItem('posts'));
-  if (posts) {
-   setPosts(posts);
-  }
-}, []);
   return (
-    <div className="Blog">
-      <Titulo />
-      <div className='container'>
-      <header className="Blog-header">
-        <h3>AssemBlog</h3>
-      </header>
+    <>
+          <Navegador />
+      <Routes>
+        <Route path="/" element={<Main admin={admin} />} />
+        <Route path="/Navegador" element={<Navegador />} />
+        <Route path="/Crear" element={<Crear />}/>
+        <Route path="/Admin" element={<Admin setAdmin={setAdmin} />}/>
+        <Route path='/Articulo' element={<Articulo />} />
+        <Route path="/posts/:id" element={<Articulo />}/>
+      </Routes>
 
-      {posts.map(post => (
-        <Prevista id={post.titulo} key={post.titulo} titulo={post.titulo} autor={post.autor} sintesis={post.sintesis} />
-))}
-
-      <footer>AssemBlog - Creado por Gael De Luca, Joaquín Pocovi y Mateo Villegas</footer>
-      </div>
-    </div>
+    </>
   );
 }
 
