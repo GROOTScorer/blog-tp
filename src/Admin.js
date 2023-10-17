@@ -1,5 +1,6 @@
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import './Admin.css';
+import Prevista from './Prevista';
 
 function Titulo() {
     useEffect(() => {
@@ -24,6 +25,15 @@ function handleChange(e)
 
 function Admin()
 {
+    const [posts, setPosts] = useState([]);
+
+    useEffect(() => {
+      const posts = JSON.parse(localStorage.getItem('posts'));
+      if (posts) {
+       setPosts(posts);
+      }
+    }, []);
+    
     return(
         <div className='containerAdmin'>
             <Titulo />
@@ -31,6 +41,10 @@ function Admin()
                 <input className='contrasena' name='contrasena' placeholder='Ingresa la contraseña...' onChange={handleChange}></input>
                 <button className='enviarContrasena'>Enviar</button>
             </form>
+        {/* {isPassword && posts.map(post => (
+        <Prevista id={post.titulo} key={post.titulo} titulo={post.titulo} autor={post.autor} sintesis={post.sintesis} />
+        ))} */}
+
         </div>
     )
 }

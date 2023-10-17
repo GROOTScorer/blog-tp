@@ -7,77 +7,88 @@ function Articulo() {
   const [body, setBody] = useState([]);
   const [titulo, setTitulo] = useState('');
 
-  let { id } = useParams();
+  const { id } = useParams();
 
   useEffect(() => {
-    document.title = id;    
+    document.title = id;
     setTitulo(id);
   }, [id]);
 
   useEffect(() => {
-      const json = JSON.parse(localStorage.getItem('posts'));
-      if (json) {
-        const filteredBody = json
-          .filter(item => item.titulo === titulo)
-          .map(item => item.area);
+    const json = JSON.parse(localStorage.getItem('posts'));
+    if (json) {
+      const filteredBody = json
+        .filter(item => item.titulo === titulo)
+        .map(item => item.area);
 
-        setBody(filteredBody);
-        console.log(filteredBody)
-      }
+      setBody(filteredBody);
+    }
   }, [titulo]);
 
   const [comentarios, setComentarios] = useState([]);
-  const [comentario, setComentario] = useState({
-      autorComentario: '',
-      areaComentario: '',
-  });
 
   useEffect(() => {
     const storedComentarios = localStorage.getItem('comentarios');
     if (storedComentarios) {
-      setComentarios(JSON.parse(storedComentarios));
+      const comentariosJSON = JSON.parse(storedComentarios);
+      const comentariosFiltrados = comentariosJSON
+      .filter(item => item.titulopost === id)
+      .map(item => ({
+        autorComentario: item.autorComentario,
+        areaComentario: item.areaComentario,
+      }));
+
+      setComentarios(comentariosFiltrados);
     }
-  }, []);
+  }, [id]);
 
-  function handleSubmit(e)
-  {
-      e.preventDefault();
-      saveComentario();
-      setComentario({
-          autorComentario: '',
-          areaComentario: '',
-      })
-  }
-
-  function handleChange(e)
-  {
-      let name = e.target.name;
-      let value = e.target.value;
-      setComentario({... comentario, [name]: value});
+  function handleSubmit(e) {
+    e.preventDefault();
+    saveComentario();
+    document.f.reset();
   }
 
   const saveComentario = () => {
-    const storedComentarios = JSON.parse(localStorage.getItem('comentarios')) || [];
-    const updatedComentarios = [comentario, ...storedComentarios];
-    localStorage.setItem('comentarios', JSON.stringify(updatedComentarios));   
+    const autorComentario = document.f.autorComentario.value;
+    const areaComentario = document.f.areaComentario.value;
+    const storedComentarios = localStorage.getItem('comentarios')
+      ? JSON.parse(localStorage.getItem('comentarios'))
+      : [];
+
+    const updatedComentario = {
+      autorComentario: autorComentario,
+      areaComentario: areaComentario,
+      titulopost: titulo,
+    };
+
+    storedComentarios.push(updatedComentario);
+    
+    localStorage.setItem('comentarios', JSON.stringify(storedComentarios));
+    setComentarios([...comentarios, updatedComentario]);
   }
 
   return (
     <div className='articulo'>
       <h1>{id}</h1>
-      {/* {body.map((text, index) => (
-        <p key={index}>{text}</p>
-      ))} */}
-        <Markdown>
-            {body[0]}
-        </Markdown>
+      <Markdown>
+        {body[0]}
+      </Markdown>
       <hr />
-      <a href='#Comentarios'><h2 id='Comentarios'>Comentarios</h2></a>
+      <a href='#Comentarios'>
+        <h2 id='Comentarios'>Comentarios</h2>
+      </a>
 
-      <form className='crearComentario' onSubmit={handleSubmit}>
-        <input className='autorComentario' name='autorComentario' placeholder='Comentador' value={comentario.autorComentario} onChange={handleChange}></input>
-        <textarea className='areaComentario' name='areaComentario' placeholder='Comienza a escribir...' value={comentario.areaComentario} onChange={handleChange}></textarea>
-        <button className='enviar' name='submit'>Enviar comentario</button>
+      {comentarios.map((comentario, index) => (
+        <div key={index}>
+          <p>Autor: {comentario.autorComentario}</p>
+          <p>{comentario.areaComentario}</p>
+        </div>
+      ))}
+
+      <form className='crearComentario' onSubmit={handleSubmit} name="f">
+        <input className='autorComentario' name='autorComentario' placeholder='Comentador' />
+        <textarea className='areaComentario' name='areaComentario' placeholder='Comienza a escribir...'></textarea>
+        <button className='enviar' type='submit'>Enviar comentario</button>
       </form>
     </div>
   );
