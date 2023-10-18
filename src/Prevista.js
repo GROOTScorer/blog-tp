@@ -13,13 +13,14 @@ function Prevista(props){
             </Link>
             <img alt="" height="25px" width="25px" className='like' src='https://cdn-icons-png.flaticon.com/256/833/833472.png'></img>
             <Link to={'/posts/' + props.id + '#Comentarios'}><img alt="" height="25px" width="25px" className='comentario' src='https://upload.wikimedia.org/wikipedia/commons/5/50/Twitter_Reply.png'></img></Link>
-        </div>
-        
-        {props.admin && (
+            {props.admin && (
             <>
-                <button></button>
+                <br/>
+                <br/>
+                <button className='eliminar'>Eliminar post</button>
             </>
         )}
+        </div>
 
         </div>
     )

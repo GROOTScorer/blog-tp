@@ -33,3 +33,15 @@ a{
     color: black;
     text-decoration: none;
 }
+
+.Comentario{
+    margin-bottom: 5px;
+}
+
+.autorCom{
+    width: max-content;
+}
+
+.areaCom{
+    width: max-content;
+}

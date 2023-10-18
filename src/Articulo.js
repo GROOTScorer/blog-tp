@@ -79,9 +79,9 @@ function Articulo() {
       </a>
 
       {comentarios.map((comentario, index) => (
-        <div key={index}>
-          <p>Autor: {comentario.autorComentario}</p>
-          <p>{comentario.areaComentario}</p>
+        <div className='Comentario' key={index}>
+          <p className='autorCom'>Autor: {comentario.autorComentario}</p>
+          <p className='areaCom'>{comentario.areaComentario}</p>
         </div>
       ))}
 

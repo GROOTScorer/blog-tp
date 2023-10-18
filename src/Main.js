@@ -10,6 +10,21 @@ function Titulo() {
 
 function Main(props)
 {
+  function eliminarPost(id) {
+  const posts = JSON.parse(localStorage.getItem('posts'));
+  const filtrado = posts.filter(post => post.titulo !== id);
+  
+  localStorage.setItem('posts', JSON.stringify(filtrado));
+  
+  // También eliminar comentarios
+  const comentarios = JSON.parse(localStorage.getItem('comentarios'));
+  const filtradoComentarios = comentarios.filter(comentario => comentario.titulopost !== id);
+
+  localStorage.setItem('comentarios', JSON.stringify(filtradoComentarios));
+
+  // Actualizar state
+  setPosts(filtrado); 
+}
     const [posts, setPosts] = useState([]);
     useEffect(() => {
   const posts = JSON.parse(localStorage.getItem('posts'));

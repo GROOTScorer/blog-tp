@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat&display=swap');
+
 .prevista{
     width: 70%;
     /* border: solid black 1px; */
@@ -42,4 +44,15 @@
 
 .comentario:hover{
     opacity: 1;
+}
+
+.eliminar{
+    transition: 0.5s;
+    font-family: 'Montserrat', sans-serif;
+}
+
+.eliminar:hover{
+    cursor: pointer;
+    filter: invert(10%);
+    -webkit-filter: invert(10%);
 }
