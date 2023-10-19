@@ -1,6 +1,5 @@
 import { useEffect, useState } from 'react';
 import './Admin.css';
-import Prevista from './Prevista';
 
 function Titulo() {
     useEffect(() => {
@@ -22,7 +21,7 @@ function Titulo() {
       function handleSubmit(e)
       {
           e.preventDefault();
-                if(password == 'abcdefg')
+                if(password === 'abcdefg')
                 {
                     setAdmin(true);
                 }

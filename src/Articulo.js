@@ -3,7 +3,7 @@ import './Articulo.css';
 import Markdown from 'react-markdown';
 import { useEffect, useState } from 'react';
 
-function Articulo() {
+function Articulo(props) {
   const [body, setBody] = useState([]);
   const [titulo, setTitulo] = useState('');
 
@@ -67,6 +67,15 @@ function Articulo() {
     setComentarios([...comentarios, updatedComentario]);
   }
 
+  const eliminarComentario = (id) =>{
+    if(localStorage.getItem('comentarios')){
+      const comentarios = JSON.parse(localStorage.getItem('comentarios'));
+      const filtradoComentarios = comentarios.filter(comentario => comentario.areaComentario !== id);
+      localStorage.setItem('comentarios', JSON.stringify(filtradoComentarios)); 
+      setComentarios(filtradoComentarios);           
+    }
+  }
+
   return (
     <div className='articulo'>
       <h1>{id}</h1>
@@ -82,6 +91,10 @@ function Articulo() {
         <div className='Comentario' key={index}>
           <p className='autorCom'>Autor: {comentario.autorComentario}</p>
           <p className='areaCom'>{comentario.areaComentario}</p>
+          {props.admin && (
+          <button onClick={() => eliminarComentario(comentario.areaComentario)}>Borrar Comentario</button>
+          )}
+
         </div>
       ))}
 

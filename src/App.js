@@ -18,7 +18,7 @@ function App() {
         <Route path="/Crear" element={<Crear />}/>
         <Route path="/Admin" element={<Admin setAdmin={setAdmin} />}/>
         <Route path='/Articulo' element={<Articulo />} />
-        <Route path="/posts/:id" element={<Articulo />}/>
+        <Route path="/posts/:id" element={<Articulo admin={admin}  />}/>
       </Routes>
 
     </>
