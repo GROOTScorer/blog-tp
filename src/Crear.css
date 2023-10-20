@@ -50,6 +50,7 @@
 .enviar{
     height: 30px;
     transition: 0.5s;
+    margin-bottom: 15px;
 }
 
 .enviar:hover{

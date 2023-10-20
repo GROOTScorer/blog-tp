@@ -89,10 +89,10 @@ function Articulo(props) {
 
       {comentarios.map((comentario, index) => (
         <div className='Comentario' key={index}>
-          <p className='autorCom'>Autor: {comentario.autorComentario}</p>
-          <p className='areaCom'>{comentario.areaComentario}</p>
+          <p className='autorCom'><b>{comentario.autorComentario}:</b></p>
+          <p className='areaCom'><Markdown>{comentario.areaComentario}</Markdown></p>
           {props.admin && (
-          <button onClick={() => eliminarComentario(comentario.areaComentario)}>Borrar Comentario</button>
+          <button className='eliminar' onClick={() => eliminarComentario(comentario.areaComentario)}>Borrar Comentario</button>
           )}
 
         </div>
