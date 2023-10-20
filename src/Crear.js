@@ -6,7 +6,6 @@ function Titulo() {
       document.title = 'Crear un post';
     }, []);
   }
-    //localStorage.setItem('posts', JSON.stringify(posts));
 
 function Crear()
 {
@@ -15,6 +14,7 @@ function Crear()
         titulo: '',
         sintesis: '',
         autor: '',
+        foto: '',
         area: ''
     });
 
@@ -26,6 +26,7 @@ function Crear()
             titulo: '',
             sintesis: '',
             autor: '',
+            foto: '',
             area: ''
         })
     }
@@ -56,6 +57,7 @@ function Crear()
             <input className='titulo' name="titulo" value={post.titulo} placeholder='Título' onChange={handleChange}></input>
             <textarea className='sintesis' name="sintesis" value={post.sintesis} placeholder='Síntesis del artículo' onChange={handleChange}></textarea>
             <input className='autor' name='autor' value={post.autor} placeholder='Creador por...' onChange={handleChange}></input>
+            <input className='foto' name='foto' value={post.foto} placeholder='Insertar URL de la imagen...' onChange={handleChange}></input>
             <textarea className='area' name='area' value={post.area} placeholder='Comienza a escribir...' onChange={handleChange}></textarea>
             <br/>
             <button className='enviar' name='submit'>Enviar</button>

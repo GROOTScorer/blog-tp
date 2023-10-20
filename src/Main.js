@@ -38,6 +38,7 @@ function Main(props)
                       titulo={post.titulo} 
                       autor={post.autor} 
                       sintesis={post.sintesis} 
+                      foto={post.foto}
                       admin={props.admin} 
                       updateFunction={setPosts} 
                   />

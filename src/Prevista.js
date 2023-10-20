@@ -32,7 +32,7 @@ function Prevista(props) {
         <div>
             <div className='prevista' key={props.titulo}>
                 <Link to={'/posts/' + props.id}>
-                    <img alt="" className='imgprev' src='https://la35.net/assets/img/binary.png'></img>
+                    <img alt="" className='imgprev' src={props.foto}></img>
                     <h3 className='tituloprev'>{props.titulo}</h3>
                     <p className='sintesisprev'>{props.sintesis}</p>
                     <p className='autorprev'>{props.autor}</p>
